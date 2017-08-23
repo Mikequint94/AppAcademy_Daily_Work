@@ -1,0 +1,51 @@
+ <% if action == :edit %>
+  <% action_url = cat_url(cat) %>
+<% else %>
+  <% action_url = cats_url %>
+<% end %>
+
+<form action="<%= action_url %>" method= 'post'>
+  <% if action == :edit %>
+    <input type='hidden' name='_method' value='PATCH'>
+  <% end %>
+  <label for='name'> Name </label>
+  <input id='name' type='text' name = 'cat[name]' value="<%= action == :edit ? @cat.name : ''%>">
+
+
+  <br>
+
+  <label for='birth_date'> Birth Date </label>
+  <input id='birth_date' type='date' name = 'cat[birth_date]'
+   value="<%= action == :edit ? @cat.birth_date : '' %>">
+  <br>
+  Colour
+  <select name = "cat[color]">
+    <option <%= action == :edit ? '' : 'selected' %> disabled> Please Select A Color </option>
+
+    <% %w(black brown tabby ginger gray burgundy sandy white).each do |color| %>
+
+    <option value= "<%=color%>" <%= action == :edit && @cat.color == color  ? 'selected' : ''%> >
+      <%=color%></option>
+    <% end %>
+</select>
+  <br>
+   Sex
+  <select name = "cat[sex]">
+
+    <option <%= action == :edit ? '' : 'selected' %> disabled> Please Select A Sex </option>
+
+    <% %w(Q F M).each do |sex| %>
+
+   <option value= "<%=sex%>" <%= action == :edit && @cat.sex == sex ? 'selected' : ''%> >
+     <%=sex%></option>
+
+    <% end %>
+  </select>
+
+  <br>
+  <label for='description'> Description </label>
+  <input id='description' type='text' name = 'cat[description]'
+  value="<%= action == :edit ? @cat.description : '' %>"
+  <br>
+  <input type='submit' value = "<%= action == :edit ? 'update cat' : 'register cat' %>">
+</form>
