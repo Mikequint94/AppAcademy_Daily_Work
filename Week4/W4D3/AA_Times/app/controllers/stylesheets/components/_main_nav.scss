@@ -1,0 +1,48 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom:  1px solid gray;
+
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  font-size: 16px;
+  text-transform: full-width;
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.left-nav > ul > li {
+  float:left;
+  padding: 10px;
+}
+
+.right-nav > ul > li {
+  float: left;
+  padding: 10px;
+}
+
+.right-nav > ul > li:last-of-type {
+
+}
+.right-nav > ul > li:last-of-type:hover {
+
+}
+
+.left-nav > ul > li:hover,
+
+.right-nav > ul > li:hover {
+  cursor: pointer;
+  background: $lightest-blue;
+}
+
+.left-nav span {
+
+}
+
+
+.right-nav i {
+
+}
