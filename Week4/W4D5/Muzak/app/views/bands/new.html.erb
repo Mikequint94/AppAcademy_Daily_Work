@@ -1,0 +1,14 @@
+<section class="form">
+  <h1>Add Favorite Band</h1>
+  <%= render partial: 'shared/errors' %>
+  <form class="" action="<%= bands_url %>" method="post">
+    <%= auth_token %>
+    <label for="name">Band:</label>
+    <input type="text" name="band[name]" value="">
+
+    <br>
+
+
+    <input type="submit" value="Add Band!">
+  </form>
+</section>

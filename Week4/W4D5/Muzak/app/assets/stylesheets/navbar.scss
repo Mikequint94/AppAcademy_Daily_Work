@@ -1,0 +1,21 @@
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav li {
+  margin: 15px 10px;
+}
+
+ul {
+  display: flex;
+}
+
+.nav-left li {
+  background: #12186e;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-family: 'Gentium Basic', serif;
+  border: 1px solid white;
+}

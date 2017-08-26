@@ -1,0 +1,15 @@
+.form {
+  margin: 0 20%;
+  text-align: center;
+  border: 2px solid #288a90;
+  padding: 14px;
+  border-radius: 10px;
+  background: #130f31;
+  input, select {
+    margin: 5px;
+    border-radius: 1px;
+  }
+  select {
+    font-size: 15px;
+  }
+}

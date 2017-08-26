@@ -1,0 +1,20 @@
+<section class="form">
+  <h1>Log In 2 Muzak</h1>
+  <%= render partial: 'shared/errors' %>
+  <form class="" action="<%= session_url %>" method="post">
+    <%= auth_token %>
+    <label for="email">Email:</label>
+    <input type="text" name="user[email]" value="">
+
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]" value="">
+
+    <br>
+
+    <input type="submit" value="Login Muzak!">
+  </form>
+
+  <%= button_to "Register Muzak!", new_user_url, method: :get %>
+</section>

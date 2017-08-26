@@ -1,0 +1,30 @@
+<h1><%= @band.name %></h1>
+
+<section class="form">
+  <h2>Add an Album</h2>
+  <%= render partial: 'shared/errors' %>
+  <form class="" action="<%= albums_url %>" method="post">
+    <input type="hidden" name="album[band_id]" value="<%= params[:band_id] %>">
+    <%= auth_token %>
+    <label for="title">Title:</label>
+    <input type="text" name="album[title]" value="">
+
+    <br>
+
+    <label for="year">Year:</label>
+    <input type="text" name="album[year]" value="">
+
+    <br>
+
+    <select class="genre" name="album[genre]">
+      <option disabled selected>Select a Genre</option>
+        <% Album::GENRES.each do |genre| %>
+          <option value="<%= genre %>"><%= genre %></option>
+        <% end %>
+    </select>
+
+    <br>
+
+    <input type="submit" value="Add Album!">
+  </form>
+</section>

@@ -1,0 +1,18 @@
+<section class="form">
+  <h1>Register for Muzak</h1>
+  <%= render partial: 'shared/errors' %>
+  <form class="" action="<%= users_url %>" method="post">
+    <%= auth_token %>
+    <label for="email">Email:</label>
+    <input type="text" name="user[email]" value="">
+
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]" value="">
+
+    <br>
+
+    <input type="submit" value="Register Muzak!">
+  </form>
+</section>

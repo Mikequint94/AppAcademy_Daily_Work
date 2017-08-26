@@ -1,0 +1,11 @@
+<h1>Bands</h1>
+<h2> List of Bands </h2>
+<%= button_to "Add a Band", new_band_url, method: 'get' %>
+<section name="band-container">
+  <% @bands.each do |band| %>
+    <section name="band-box">
+      <%= link_to band.name, band_url(band) %>
+    </section>
+
+  <% end %>
+</section>
