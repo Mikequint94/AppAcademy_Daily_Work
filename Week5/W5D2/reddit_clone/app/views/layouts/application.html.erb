@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RedditClone</title>
+    <title>FReddit</title>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
+
+    <div class ="title">
+      Freddit
+    </div>
     <% if logged_in? %>
     Username: <%=current_user.username %>
     <%= button_to "Sign Out", session_url, method: :delete %>
@@ -18,13 +23,14 @@
   </header>
 
   <body>
-
-    <% if flash[:errros] %>
+    <br>
+    <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
-    <%= error %>
+    <%= error %> <br>
     <% end %>
     <% end %>
-    
+    <br>
+
     <%= yield %>
   </body>
 </html>

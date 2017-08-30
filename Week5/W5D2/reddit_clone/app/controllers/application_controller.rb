@@ -17,12 +17,14 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
+    current_user.reset_session_token! if current_user
     session[:session_token] = nil
-    current_user.reset_session_token!
     @current_user = nil
+    redirect_to subs_url
   end
 
   def require_logged_in
     redirect_to new_session_url unless logged_in?
+    flash[:errors] = ['You Must Be Signed In To Do That!'] unless logged_in?
   end
 end

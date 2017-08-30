@@ -1,9 +1,36 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string
+#  password_digest :string
+#  session_token   :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :username, :password_digest, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
   attr_reader :password
+
+  has_many :moderated_subs,
+  primary_key: :id,
+  foreign_key: :moderator_id,
+  class_name: :Sub
+
+  has_many :posts,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :Post
+
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Comment
 
   after_validation :ensure_session_token
 
@@ -22,15 +49,15 @@ class User < ApplicationRecord
     return nil
   end
 
+  def reset_session_token!
+    self.session_token = SecureRandom::urlsafe_base64
+    self.save!
+    self.session_token
+  end
+
   private
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
-  end
-
-  def reset_session_token!
-    self.session_token = SecureRandom::urlsafe_base64
-    self.save!
-    self.session_tokens
   end
 end

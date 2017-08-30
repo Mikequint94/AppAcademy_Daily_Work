@@ -1,6 +1,6 @@
 Sign Up
 
-<form action="<%= new_user_url %>" method="post">
+<form action="<%= users_url %>" method="post">
 
   <%= auth_token %>
 
@@ -8,7 +8,7 @@ Sign Up
     <input type="text" name="user[username]" value="">
   </label>
   <label>Password
-    <input type="text" name="user[password]" value="">
+    <input type="password" name="user[password]" value="">
   </label>
 
   <input type="submit" name="" value="Sign Up">
