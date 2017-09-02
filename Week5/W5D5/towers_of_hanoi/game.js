@@ -14,24 +14,6 @@ class Game {
     this.stacks = [[3,2,1],[],[]];
   }
 
-  promptMove() {
-    let from = 0;
-    let to = 0;
-    this.displayTowers();
-    reader.question("Move from?", function(responseFrom){
-      from = parseInt(responseFrom);
-      reader.question("Move to?", function(responseTo){
-        to = parseInt(responseTo);
-      });
-    });
-
-    if (this.validMove(from, to)){
-      this.updateTowers(from, to);
-    } else {
-      console.log("Invalid move, try again");
-      this.promptMove();
-    }
-  }
 
   validMove(from, to) {
     let bool1 = this.stacks[from].length > 0;
@@ -57,6 +39,24 @@ class Game {
 
     return bool1 && (bool2 || bool3);
   }
+  promptMove() {
+    let from = 0;
+    let to = 0;
+    this.displayTowers();
+    reader.question("Move from?", function(responseFrom){
+      from = parseInt(responseFrom);
+      reader.question("Move to?", function(responseTo){
+        to = parseInt(responseTo);
+        if (this.validMove(from, to)){
+          this.updateTowers(from, to);
+        } else {
+          console.log("Invalid move, try again");
+          this.promptMove();
+        }
+      });
+    });
+
+  }
 
   run () {
     // until game over
@@ -66,3 +66,6 @@ class Game {
       // render
   }
 }
+
+const toh = new Game;
+toh.promptMove();
