@@ -1,4 +1,5 @@
 const Asteroid = require('./asteroid.js');
+const Ship = require('./ship.js');
 
 const Game = function Game () {
   Game.DIM_X = 500;
@@ -6,6 +7,7 @@ const Game = function Game () {
   Game.NUM_ASTEROIDS = 10;
   this.asteroids = [];
   this.addAsteroids();
+  this.ship = new Ship({pos: this.randomPosition()});
 };
 
 Game.prototype.addAsteroids = function () {
@@ -30,6 +32,7 @@ Game.prototype.draw = function (ctx) {
     this.asteroids.forEach( function (asteroid) {
     asteroid.draw(ctx);
   });
+  this.ship.draw(ctx);
 
 };
 
@@ -37,6 +40,7 @@ Game.prototype.moveObjects = function () {
   this.asteroids.forEach( function (asteroid) {
     asteroid.move();
   });
+  this.ship.move();
 };
 
 Game.prototype.wrap = function (pos) {
