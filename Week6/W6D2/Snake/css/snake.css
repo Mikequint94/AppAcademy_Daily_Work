@@ -1,0 +1,31 @@
+li {
+  height:34px;
+  width:34px;
+  background-color: black;
+  border: 3px solid pink;
+  list-style: none;
+  float: left;
+}
+
+ul {
+  width: 800px;
+
+}
+
+body {
+  color: white;
+  background-color: maroon;
+}
+
+h1 {
+  text-align: center;
+}
+
+figure {
+
+
+}
+
+li.snake{
+  background-color: lime;
+}

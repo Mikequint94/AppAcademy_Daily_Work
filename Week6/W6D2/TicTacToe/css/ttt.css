@@ -1,0 +1,25 @@
+li {
+  height: 100px;
+  width: 100px;
+  background-color: grey;
+  border: 10px solid black;
+  float: left;
+  list-style: none;
+  font-size: 100px;
+  font-family: fantasy;
+  text-align: center;
+}
+
+ul {
+  background-color: red;
+  width:360px;
+}
+
+.o:after {
+  background-color: pink;
+  font-size: 40px;
+}
+
+div {
+
+}
