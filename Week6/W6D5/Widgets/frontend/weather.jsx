@@ -19,9 +19,6 @@ class Weather extends React.Component{
           // Success!
           // myThis.state.weatherData = JSON.parse(request.responseText);
           myThis.setState( { weatherData: JSON.parse(request.responseText) } );
-          console.log(`the response is : ${myThis.state.weatherData}`);
-          console.log(myThis.state.weatherData);
-          console.log(`the weather is : ${myThis.state.weatherData.weather[0].description}`);
         } else {
           // We reached our target server, but it returned an error
           console.log("Error retrieving Weather Data from API");
@@ -41,7 +38,7 @@ class Weather extends React.Component{
     return (
       <div>
       <h2>Current Location: {this.state.weatherData.name}</h2>
-      <h2>Lat: {this.state.location[0]} Long: {this.state.location[1]}</h2>
+      <h2>Lat: {parseFloat(this.state.location[0]).toFixed(3)} Long: {parseFloat(this.state.location[1]).toFixed(3)}</h2>
       <h2> Weather: {this.state.weatherData.weather[0].description} </h2>
       <h2> Temperature: {Math.floor((this.state.weatherData.main.temp -273.15)*1.8 + 32)} degrees Fahrenheit </h2>
     </div>

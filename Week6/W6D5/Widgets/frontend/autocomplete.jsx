@@ -1,24 +1,38 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 class Autocomplete extends React.Component{
   constructor(props) {
     super(props);
     this.names = props.namesList;
-    console.log(this.names);
     this.state={ inputVal: ""};
     this.handleClick = this.handleClick.bind(this);
-    this.includedNames = this.names;
   }
 
   handleInput(e) {
-    this.setState({inputVal: this.state.inputVal = e.target.value }/*, */);
-    // this.names.filter((name) =>{
-    //   this.includedNames = [];
-    //   if (name.slice(0,this.state.inputVal.length +1) === this.state.inputVal) {
-    //     this.includedNames.push(name);
-    //   }
-    // });
+    this.setState({inputVal: e.target.value });
+  }
+  resetInput(e) {
+    e.preventDefault();
+    this.setState({inputVal: ""});
+  }
 
+  matches() {
+    const matches = [];
+    if (this.state.inputVal.length === 0) {
+      return this.names;
+    }
+    this.names.forEach(name => {
+      let subname = name.slice(0, this.state.inputVal.length);
+      if (subname.toLowerCase() === this.state.inputVal.toLowerCase()) {
+        matches.push(name);
+      }
+    });
+    if (matches.length === 0) {
+      matches.push("No matches found");
+    }
+    return matches;
   }
 
   handleClick(e) {
@@ -27,14 +41,22 @@ class Autocomplete extends React.Component{
   }
 
   render() {
-    const names =  this.includedNames.map((name)=>(
+    const names =  this.matches().map((name)=> {
+      return (
       <li key= {name+"li"} onClick={this.handleClick } > {name} </li>
-    ));
+      );
+    });
     return (
       <div className="autocomplete">
-        <input id="searchBox" value={this.state.inputVal} onChange={this.handleInput.bind(this)} />
+        <input id="searchBox" placeholder="Search the list..."value={this.state.inputVal} onChange={this.handleInput.bind(this)} />
+        <button onClick={this.resetInput.bind(this)}>Reset</button>
         <ul>
-        {names}
+          <ReactCSSTransitionGroup
+           transitionName='auto'
+           transitionEnterTimeout={200}
+           transitionLeaveTimeout={500}>
+           {names}
+         </ReactCSSTransitionGroup>
         </ul>
       </div>
     );
