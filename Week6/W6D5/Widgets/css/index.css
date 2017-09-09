@@ -1,0 +1,47 @@
+div {
+  margin: 0 auto;
+  text-align: center;
+  border: 10px solid red;
+  background-color: aqua;
+}
+
+h1 {
+  color: red;
+  background: black;
+  font-family: "Open Sans", fantasy;
+
+}
+
+ul {
+}
+
+section {
+  display:flex;
+}
+li {
+
+  font-size: 4em;
+   font-family: "Lobster", fantasy;
+}
+.time {
+  justify-content: space-between;
+}
+.date {
+  justify-content: space-between;
+}
+.autocomplete li {
+  width: 200px;
+  border: 4px solid purple;
+  margin: 0 auto;
+  font-size: 22px;
+  font-family: "Open Sans", fantasy;
+  padding: 3px;
+}
+.autocomplete li:hover {
+  cursor: pointer;
+}
+#searchBox {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 180px;
+}
