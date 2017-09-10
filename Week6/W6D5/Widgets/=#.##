@@ -1,0 +1,12 @@
+Widgets@1.0.0 /Users/ZhaoHarris/Desktop/AppAcademy_Daily_Work/Week6/W6D5/Widgets
+├── moment@2.18.1 
+├─┬ UNMET PEER DEPENDENCY react@15.6.1
+│ └─┬ fbjs@0.8.15
+│   └─┬ isomorphic-fetch@2.2.1
+│     └─┬ node-fetch@1.7.3
+│       └─┬ encoding@0.1.12
+│         └── iconv-lite@0.4.19 
+├── react-addons-shallow-compare@15.6.0 
+├── react-dates@12.6.0 
+└── react-dom@15.6.1 
+

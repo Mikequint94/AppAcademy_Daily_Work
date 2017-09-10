@@ -75,35 +75,70 @@ li {
   background: pink;
 }
 .autocomplete button {
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 62px;
   border-radius: 12px;
-  background: purple;
-  border: 2px solid pink;
+  background: pink;
+  border: 2px solid purple;
   font-size: 1em;
 }
+.autocomplete ul{
+  /*display: inline-block;*/
+}
+.autocomplete div{
+  display: inline-block;
+  margin-left: 30px;
+  padding: 10px;
+  vertical-align: top;
+  height: 500px;
+}
+
 #searchBox {
   margin: 0 auto;
+  margin-left: 40px;
   margin-top: 10px;
-  width: 180px;
+  width: 200px;
+  margin-right: 20px;
 }
 
-.auto-enter {
+.autoO-enter {
   opacity: 0.01;
-  transform: translateY(500%);
+  /*transform: translateY(-500%);*/
 }
 
-.auto-enter.auto-enter-active {
+.autoO-enter.autoO-enter-active {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 700ms ease-in, transform 700ms ease-in;
 }
 
-.auto-leave {
+.autoO-leave {
   opacity: 1;
   transform: translateX(0);
 }
 
-.auto-leave.auto-leave-active {
+.autoO-leave.autoO-leave-active {
+  opacity: 0.01;
+  transform: translateX(-500%);
+  transition: opacity 700ms ease-in, transform 700ms ease-in;
+}
+.autoD-enter {
+  opacity: 0.01;
+  transform: translateY(500%);
+}
+
+.autoD-enter.autoD-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 700ms ease-in, transform 700ms ease-in;
+}
+
+.autoD-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.autoD-leave.autoD-leave-active {
   opacity: 0.01;
   transform: translateX(500%);
   transition: opacity 700ms ease-in, transform 700ms ease-in;
