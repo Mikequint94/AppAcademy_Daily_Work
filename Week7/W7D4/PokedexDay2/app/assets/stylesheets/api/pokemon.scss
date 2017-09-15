@@ -1,0 +1,41 @@
+// Place all the styles related to the api/Pokemon controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pokemon-index {
+  // display: inline-block;
+  width: 200px;
+}
+
+.pokemon-detail {
+  // float:left;
+  // vertical-align: top;
+}
+
+.pokemon-form {
+// float: left;
+  // vertical-align: top;
+}
+.container {
+ // position:absolute;
+ // float: left;
+ width:700px;
+ margin-left: 300px;
+ height: 100%;
+ top:0;
+ bottom:0;
+ // z-index:-1;
+ overflow:hidden;
+ }
+
+.menu {
+ overflow-y: scroll;
+ width:300px;
+ // float:left;
+ height:100%;
+ margin-top:0px;
+ position: absolute;
+ }
+
+.outer{
+  display: flex;
+}
